@@ -1,94 +1,7 @@
 #include <iostream>
 #include "raylib.h"
-
-namespace Settings
-{
-    int playerScore{ 0 };
-    int computerScore{ 0 };
-}
-
-class Ball
-{
-public:
-
-    Ball(float posX, float posY, float speedX, float speedY, float radius)
-        :m_PosX{ posX }, m_PosY{ posY }, m_SpeedX{ speedX }, m_SpeedY{ speedY }, m_Radius{ radius }
-    {
-
-    }
-
-    void ResetBall()
-    {
-        m_PosX = GetScreenWidth() / 2;
-        m_PosY = GetScreenHeight() / 2;
-
-        int speed_choices[2]{ -5,5 };
-        m_SpeedX = speed_choices[GetRandomValue(0, 1)];
-        m_SpeedY = speed_choices[GetRandomValue(0, 1)];
-
-    }
-
-    void Draw() const
-    {
-        DrawCircle(m_PosX, m_PosY, m_Radius, WHITE);
-    }
-
-    void Update()
-    {
-        if (m_PosY + m_Radius >= GetScreenHeight() || m_PosY - m_Radius <= 0)
-        {
-            m_SpeedY *= -1;
-        }
-
-        if (m_PosX + m_Radius >= GetScreenWidth()) //COMPUTER SCORES
-        {
-            ResetBall();
-            Settings::computerScore++;
-        }
-        else if (m_PosX - m_Radius <= 0) //PLAYER SCORES
-        {
-            ResetBall();
-            Settings::playerScore++;
-        }
-
-        m_PosX += m_SpeedX;
-        m_PosY += m_SpeedY;
-    }
-
-    float GetPosY() const
-    {
-        return m_PosY;
-    }
-
-    float GetPosX() const
-    {
-        return m_PosX;
-    }
-
-    float GetRadius() const
-    {
-        return m_Radius;
-    }
-
-    void BounceBallOnX()
-    {
-        m_SpeedX *= -1;
-        if (m_SpeedX < 0) { m_SpeedX -= 0.5f; }
-        else if (m_SpeedX > 0) { m_SpeedX += 0.5f; }
-
-        if (m_SpeedY < 0) { m_SpeedY -= 0.5f; }
-        else if (m_SpeedY > 0) { m_SpeedY += 0.5f; }
-    }
-
-private:
-
-    float m_PosX{};
-    float m_PosY{};
-    float m_SpeedX{};
-    float m_SpeedY{};
-    float m_Radius{};
-};
-
+#include "Settings.h"
+#include "Ball.h"
 
 class PlayerPaddle
 {
@@ -155,19 +68,13 @@ public:
 };
 
 
-
 int main()
 {
-    const int screenWidth{ 1600 };
-    const int screenHeight{ 900 };
-    const int targetFPS{ 144 };
-
-
-    InitWindow(screenWidth, screenHeight, "Pong.Kuntay");
-    SetTargetFPS(targetFPS);
-    Ball mainBall{ screenWidth / 2,screenHeight / 2,5,5,25.f };
-    PlayerPaddle playerPaddle{ screenWidth - 35, screenHeight / 2 - 100, 35, 200, 5 };
-    ComputerPaddle computerPaddle{ 0, screenHeight / 2 - 100, 35, 200 ,6 };
+    InitWindow(Settings::screenWidth, Settings::screenHeight, "Pong.Kuntay");
+    SetTargetFPS(Settings::targetFPS);
+    Ball mainBall{Settings::screenWidth / 2,Settings::screenHeight / 2,5,5,25.f };
+    PlayerPaddle playerPaddle{Settings::screenWidth - 35,Settings::screenHeight / 2 - 100, 35, 200, 5 };
+    ComputerPaddle computerPaddle{ 0, Settings::screenHeight / 2 - 100, 35, 200 ,6 };
 
 
 
@@ -201,14 +108,14 @@ int main()
         BeginDrawing();
 
         ClearBackground(BLACK);
-        DrawLine(screenWidth / 2, 0, screenWidth / 2, screenHeight, WHITE);
+        DrawLine(Settings::screenWidth / 2, 0, Settings::screenWidth / 2, Settings::screenHeight, WHITE);
 
         mainBall.Draw();
         playerPaddle.Draw();
         computerPaddle.Draw();
 
-        DrawText(TextFormat("%i", Settings::computerScore), screenWidth / 2 - 80, 20, 80, WHITE);
-        DrawText(TextFormat("%i", Settings::playerScore), screenWidth / 2 + 40, 20, 80, WHITE);
+        DrawText(TextFormat("%i", Settings::computerScore), Settings::screenWidth / 2 - 80, 20, 80, WHITE);
+        DrawText(TextFormat("%i", Settings::playerScore), Settings::screenWidth / 2 + 40, 20, 80, WHITE);
 
         EndDrawing();
     }

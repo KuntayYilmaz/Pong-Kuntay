@@ -1,9 +1,26 @@
 add_executable(${PONG_TARGET_NAME}
+
 	${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/src/Application.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/include/Application.h
+
+	${CMAKE_CURRENT_SOURCE_DIR}/include/Settings.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Settings.cpp
+
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Pong.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/include/Pong.h
+
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Ball.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/include/Ball.h
+
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Paddle.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/include/Paddle.h
+
+	${CMAKE_CURRENT_SOURCE_DIR}/src/ComputerPaddle.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/include/ComputerPaddle.h
 
 
+)
 
+target_include_directories(${PONG_TARGET_NAME} PUBLIC
+	${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
