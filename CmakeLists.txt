@@ -9,6 +9,23 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+
+
+include(FetchContent)
+set(RAYLIB_LIB_NAME RAYLIB)
+
+FetchContent_Declare(
+	${RAYLIB_LIB_NAME}
+	GIT_REPOSITORY https://github.com/raysan5/raylib
+	GIT_TAG 5.0
+	GIT_SHALLOW FALSE
+)
+
+FetchContent_MakeAvailable(${RAYLIB_LIB_NAME})
+
+
+
+
 set(PONG_TARGET_NAME Pong-Kuntay)
 
 add_subdirectory(Pong-Kuntay)
