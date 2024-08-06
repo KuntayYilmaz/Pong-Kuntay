@@ -35,4 +35,5 @@ This command compiles the source code and produces the executable.
 Features:
 
 Use W and S to navigate your Paddle
+
 Everytime Ball touches to the one of the paddles it gets faster!
