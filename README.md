@@ -3,7 +3,7 @@ Pong Game
 Welcome to Pong-Kuntay, a classic Pong game built using Raylib and C++!
 
 Requirements:
-C++ Compiler
+C++ Compiler,
 CMake
 
 First, clone the repository to your local machine:
