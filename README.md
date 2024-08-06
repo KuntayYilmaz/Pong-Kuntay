@@ -37,4 +37,4 @@ Features:
 
 Use W and S to navigate your Paddle
 
-Everytime Ball touches to the one of the paddles it gets faster!
+Every time the ball touches one of the paddles, it gets faster!
