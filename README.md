@@ -20,12 +20,16 @@ cd build
 
 
 Configure the Project with CMake:
+
 cmake ..
+
 This command generates the build configuration files.
 
 
 Compile the Project:
+
 cmake --build .
+
 This command compiles the source code and produces the executable.
 
 Features:
