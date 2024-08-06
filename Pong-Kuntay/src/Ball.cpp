@@ -6,8 +6,8 @@
         :m_PosX{ posX }, m_PosY{ posY }, m_SpeedX{ speedX }, m_SpeedY{ speedY }, m_Radius{ radius }
     {
     }
-
-    void Ball::ResetBall() //RESETS THE BALL INTO THE CENTER AND RANDOMIZE DIRECTION
+  
+    void Ball::ResetBall() //Resets the Ball into the center and randomize velocity
     {
         m_PosX = GetScreenWidth() / 2;
         m_PosY = GetScreenHeight() / 2;
@@ -26,17 +26,17 @@
 
     void Ball::Update()
     {
-        if (m_PosY + m_Radius >= GetScreenHeight() || m_PosY - m_Radius <= 0) //LIMITS THE MOVEMENT OF THE BALL TO THE SCREEN
+        if (m_PosY + m_Radius >= GetScreenHeight() || m_PosY - m_Radius <= 0) //Limits the movement of the ball limited to screen
         {
             m_SpeedY *= -1;
         }
 
-        if (m_PosX + m_Radius >= GetScreenWidth()) //COMPUTER SCORES
+        if (m_PosX + m_Radius >= GetScreenWidth()) //Computer scores
         {
             ResetBall();
             Settings::computerScore++;
         }
-        else if (m_PosX - m_Radius <= 0) //PLAYER SCORES
+        else if (m_PosX - m_Radius <= 0) //Player scores
         {
             ResetBall();
             Settings::playerScore++;
@@ -46,7 +46,7 @@
         m_PosY += m_SpeedY;
     }
 
-    void Ball::BounceBallOnX() //IF ONE OF THE PADDLES CATCH THE BALL IT GETS FASTER
+    void Ball::BounceBallOnX() //If one of the paddles catch the ball, it gets faster
     {
         m_SpeedX *= -1;
         if (m_SpeedX < 0) { m_SpeedX -= 0.5f; }

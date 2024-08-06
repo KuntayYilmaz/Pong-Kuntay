@@ -5,7 +5,7 @@
     {
     }
 
-    void ComputerPaddle::Update(int ballPosY) //MOVEMENT ALGORITHM FOR THE COMPUTER PADDLE
+    void ComputerPaddle::Update(int ballPosY) //Movement algorithm for computer paddle
     {
         if ((m_PosY + (m_Height / 2)) < ballPosY && m_PosY + m_Height < GetScreenHeight() - 100) 
         {
