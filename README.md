@@ -8,6 +8,7 @@ CMake
 
 First, clone the repository to your local machine:
 git clone https://github.com/KuntayYilmaz/Pong-Kuntay.git
+
 cd Pong-Kuntay
 
 
