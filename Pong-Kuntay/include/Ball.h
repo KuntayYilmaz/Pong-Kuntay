@@ -16,7 +16,6 @@ public:
     float GetRadius() const { return m_Radius; }
 
     void BounceBallOnX();
-   
 
 private:
 

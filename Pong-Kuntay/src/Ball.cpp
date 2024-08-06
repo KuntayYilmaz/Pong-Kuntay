@@ -7,7 +7,7 @@
     {
     }
 
-    void Ball::ResetBall()
+    void Ball::ResetBall() //RESETS THE BALL INTO THE CENTER AND RANDOMIZE DIRECTION
     {
         m_PosX = GetScreenWidth() / 2;
         m_PosY = GetScreenHeight() / 2;
@@ -46,7 +46,7 @@
         m_PosY += m_SpeedY;
     }
 
-    void Ball::BounceBallOnX() //IF ONE OF THE PADDLES CATCH THE BALL GETS FASTER
+    void Ball::BounceBallOnX() //IF ONE OF THE PADDLES CATCH THE BALL IT GETS FASTER
     {
         m_SpeedX *= -1;
         if (m_SpeedX < 0) { m_SpeedX -= 0.5f; }

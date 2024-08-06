@@ -1,0 +1,9 @@
+
+
+
+namespace Pong
+{
+
+	void Run();
+
+}
