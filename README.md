@@ -1,5 +1,7 @@
 ## Pong-Kuntay
 
+![PongReadme](https://github.com/user-attachments/assets/43ce6547-d453-42cd-8d7b-c4f2ccbb1444)
+
 Welcome to Pong-Kuntay, a classic Pong game built using Raylib and C++!
 
 Requirements:
