@@ -13,27 +13,27 @@ git clone https://github.com/KuntayYilmaz/Pong-Kuntay.git
 cd Pong-Kuntay
 
 
-Create a Build Directory:
+# Create a Build Directory:
 
 mkdir build
 
 cd build
 
 
-Configure the Project with CMake:
+# Configure the Project with CMake:
 
 cmake ..
 
 This command generates the build configuration files.
 
 
-Compile the Project:
+# Compile the Project:
 
 cmake --build .
 
 This command compiles the source code and produces the executable.
 
-Features:
+# Features:
 
 Use W and S to navigate your Paddle
 
