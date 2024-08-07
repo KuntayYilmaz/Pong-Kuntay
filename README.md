@@ -1,4 +1,4 @@
-## Pong
+## Pong-Kuntay
 
 Welcome to Pong-Kuntay, a classic Pong game built using Raylib and C++!
 
